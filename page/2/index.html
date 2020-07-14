@@ -1,60 +1,76 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>SENS</title><meta name="description"><meta name="keywords" content="森森的博客,森森"><meta name="author" content="SEN"><meta name="copyright" content="SEN"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="SENS"><meta name="twitter:description"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta property="og:type" content="website"><meta property="og:title" content="SENS"><meta property="og:url" content="https://blog.sens.fun/page/2/"><meta property="og:site_name" content="SENS"><meta property="og:description"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
-var t = Cookies.get("theme");
-if (autoChangeMode == '1'){
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-if (t === undefined){
-  if (isLightMode) activateLightMode()
-  else if (isDarkMode) activateDarkMode()
-  else if (isNotSpecified || hasNoSupport){
-    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-    now = new Date();
-    hour = now.getHours();
-    isNight = hour < 6 || hour >= 18
-    isNight ? activateDarkMode() : activateLightMode()
-}
-} else if (t == 'light') activateLightMode()
-else activateDarkMode()
-
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SENS</title><meta name="description"><meta name="keywords" content="森森的博客,森森"><meta name="author" content="SEN"><meta name="copyright" content="SEN"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/favicon.ico"><link rel="canonical" href="https://blog.sens.fun/page/2/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="SENS"><meta property="og:url" content="https://blog.sens.fun/page/2/"><meta property="og:site_name" content="SENS"><meta property="og:description"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta property="article:published_time" content="2020-07-14T11:32:39.585Z"><meta property="article:modified_time" content="2020-07-14T11:32:39.585Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
   }
 }
-function activateLightMode(){
+var activateLightMode = function () {
   document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
   }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://blog.sens.fun/page/2/"><link rel="preload" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg" as="image"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c5a385a4c1466b48bbff001d228f4122";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://blog.sens.fun","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
   bookmark: {
-    title: 'Snackbar.bookmark.title',
     message_prev: '按',
     message_next: '键将本页加入书签'
   },
@@ -65,13 +81,59 @@ function activateLightMode(){
   medium_zoom: false,
   fancybox: true,
   Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
   baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
   isHome: true,
-  isPost: false
-  
-}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">SENS</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">36</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><nav class="full_page" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)"><div id="site-info"><div id="site-title"><span class="blogtitle">SENS</span></div><div id="site-sub-title"><span class="subtitle"></span></div><div id="site-social-icons"><a class="social-icon" href="https://github.com/lhspang" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div></nav><main id="content-outer"><div class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E7%BD%91%E7%BB%9C.html" title="网络"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E7%BD%91%E7%BB%9C.html" title="网络">网络</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">网络一、网络概述分布在不同地理区域的计算机与专门的外部设备用通信线路互连成一个规模宏大、功能强大的网络系统，从而使众多的计算机可以方便地互相传递信息，共享硬件、软件、数据信息等资源。
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-07-14 19:32:39'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">37</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">SENS</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">SENS</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lhspang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="Rss"><i class="fa fa-rss"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E9%9B%86%E5%90%88%E2%80%94-%E5%A4%8D%E4%B9%A0.html" title="集合—-复习">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集合—-复习"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E9%9B%86%E5%90%88%E2%80%94-%E5%A4%8D%E4%B9%A0.html" title="集合—-复习">集合—-复习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-11-04 19:54:36"><i class="far fa-calendar-alt"></i>2019-11-04</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">集合
+1、Collection 和 Collections
+​        Collection是一个接口，是所有单值集合的父接口；
+​        Collections是一个帮助类，这个类中提供了很多对于集合操作的静态方法
+2、List接口 和 Set接口的区别
+​        List接口和set接口都是Collection接口的子接口
+​        List接口中的元素是有序可重复的；
+​        Set接口中的元素是无序不可重复的；
+3、ArrayList 和 LinkedList的区别
+​        ArrayList和LinkedList集合都是List接口的实现类，其元素都是有序可重复的；
+​        ArrayList中元素的存储是基于数组的实现，元素查询、添加速度比较快，插入元素速度较慢；
+​        LinkedList中的元素是基于链表的实现，元素的插入速度较快；
+4、ArrayList 和 Verctor的区别
+​        ArrayList和Verctor都是基于数组的实现；
+​        ArrayList是线程非 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E7%BD%91%E7%BB%9C.html" title="网络">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E7%BD%91%E7%BB%9C.html" title="网络">网络</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-16 19:56:28"><i class="far fa-calendar-alt"></i>2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">网络一、网络概述分布在不同地理区域的计算机与专门的外部设备用通信线路互连成一个规模宏大、功能强大的网络系统，从而使众多的计算机可以方便地互相传递信息，共享硬件、软件、数据信息等资源。
 二、网络通信要素1. IP &amp; 端口号1.1 IP网络中主机的唯一标识，通过Ip可以定位到主机位置
-1.2  ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E7%BA%BF%E7%A8%8B.html" title="线程"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线程"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E7%BA%BF%E7%A8%8B.html" title="线程">线程</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">线程java程序中会默认存在的三个线程
+1.2 端口号用于标识当前主机上运行的进程
+2.网络协议2.1 TCP
+使用之前需要建立TCP连接，形成传输通道
+传输前采用“三次握手”方式，点对点通信，可靠性高
+可进行大数据量传输
+传输完毕要释放连接
+
+2.2 UDP
+不需要建立连接
+发送数据是以报文形式，将数据封装成数据包
+发送数据时不需要去人对方是否整备好，以及接收到后也不确认，不可靠
+发送完不需要释放资源，开销小，效率快
+
+三、java中的网络123InetAddress address1 = InetAddress.getByName("192.168.2.1");System.out.println(address1.getHostAddress()); // 获取ipSystem.out.println(address1.getHos ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E7%BA%BF%E7%A8%8B.html" title="线程">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线程"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E7%BA%BF%E7%A8%8B.html" title="线程">线程</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-16 19:56:14"><i class="far fa-calendar-alt"></i>2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">线程java程序中会默认存在的三个线程
 
 main方法：主线程
 GC(垃圾回收机制，回收不用的垃圾内容数据)
@@ -84,38 +146,114 @@ GC(垃圾回收机制，回收不用的垃圾内容数据)
 3.实现CallBack接口
 4.线程池
 
-1. Thread类继承Thread类， ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E6%B3%9B%E5%9E%8B.html" title="泛型"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="泛型"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E6%B3%9B%E5%9E%8B.html" title="泛型">泛型</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">泛型泛型：类型的参数化。就是定义类、接口时，可以将要使用到的某个数据类型定义成一个参数，在真正使用类或接口时再去确定
+1. Thread类继承Thread类，那么Talk1这个类就是一个线程类
+12345678910111213141516171819202122public class Talk1 extends Thread &#123;	/*	 *run方法，线程体，也就是当前线程需要执行的任务	 *线程启动后，系统会调用run方法	 * @see java.lang.Thread#run()	 */	@Override	public void run() &#123;		while(true) &#123;			// 获取线程的名字			System.out.println(Thread.currentThread().getName());			System.out.println(getName());			System.out.pr ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E6%B3%9B%E5%9E%8B.html" title="泛型">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="泛型"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E6%B3%9B%E5%9E%8B.html" title="泛型">泛型</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-16 19:34:48"><i class="far fa-calendar-alt"></i>2019-10-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">泛型泛型：类型的参数化。就是定义类、接口时，可以将要使用到的某个数据类型定义成一个参数，在真正使用类或接口时再去确定
 
 1.如果泛型类使用么有指定的类型，那么泛型将为Object类型
 2.实现泛型接口，并且确定泛型的类型，这样这个类就不是泛型类
-3.定义一个子类继承泛型接口或者泛型类时，泛型的类型依 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E9%9B%86%E5%90%88.html" title="集合"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集合"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E9%9B%86%E5%90%88.html" title="集合">集合</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">集合一、java的集合框架：
+3.定义一个子类继承泛型接口或者泛型类时，泛型的类型依旧不能确定，那么就得在子类上再次定义泛型
+表示在使用子类时去明确泛型的类型，这样子类就是泛型类
+4.泛型类、接口，泛型的个数可以有多个，用逗号隔开
+5.泛型方法
+6.注意：不能创建泛型数组，T[] t = new T[5]; 编译不通过
+
+一、泛型类泛型类，尖括号中是一个类型的参数，在使用类时再明确具体的类型
+泛型类中可以使用这个类型的参数
+123456789101112131415161718192021222324public class Data&lt;T&gt; &#123;	String name;	int age;	// 给属性声明为T类型	T x;	public Data(String name,int age,T x) &#123;		this.name = name;		t ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E9%9B%86%E5%90%88.html" title="集合">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集合"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E9%9B%86%E5%90%88.html" title="集合">集合</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-15 13:10:39"><i class="far fa-calendar-alt"></i>2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">集合一、java的集合框架：
 Collection接口：
 
 |—List：里面存放的数据是有序的，并且数据是可重复的
 
 |— ArrayList：动态数组，顺序存储，遍历、添加（添加到末尾，非插入）效率较高
 |— LinkedList：链式结构，插入、删除效率高，遍历查找效率低
-|— Vector： ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/IO.html" title="IO"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IO"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/IO.html" title="IO">IO</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">IO对于数据的读写操作时，有不同的输入输出对象，Java中是将其当做流的形式来看待。
+|— Vector：动态数组，比较老的集合结构，一般很少使用
+
+
+
+
+|—Set：里面的数据是无序的，不可重复的
+
+|— HashSet：主要的实现类,无序不代表随机
+
+|— LinkedHashSet : 是在原有的基础上底层通过一个链表进行维护，遍历效率会有提升
+​    若经常对set进行遍历操作，可以采用LinkedHashSet
+
+|— TreeSet：TreeSet中存放的数据可以进行排序（Comparable Comparator）
+​            TreeSet中存放的对象必须实现Comparable
+​            TreeSet中是不能存放空对象的 ！！！
+
+
+
+
+
+
+
+Map接口：Map中存放的数据都是一对一对的，里面有一个叫做key，另外一个叫做value，键值对
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/IO.html" title="IO">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IO"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/IO.html" title="IO">IO</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-15 11:40:04"><i class="far fa-calendar-alt"></i>2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">IO对于数据的读写操作时，有不同的输入输出对象，Java中是将其当做流的形式来看待。
 流(stream)的理解，Stream是从起源（source)到接收(sink)的有序数据
 一、流的分类1、数据的输入输出（数据的流向，以程序为中心看待）​    输入流​    输出流  
-2、按照操作数据的单位 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" title="正则表达式"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" title="正则表达式">正则表达式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">正则表达式正则表达式是一种最早起源于Perl语言的特殊字符串技术，可以通过一些固定的模式编写一些特殊的字符串，通过对这些特殊字符串使用，可以有效的进行表单验证(手机，邮箱，网址等输入格式的检查)，以及一些数据的爬取，包括字符替换等功能;因此，正则表达式是一项非常强大的表达式语言。
-相关类java基础 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/File.html" title="File"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/File.html" title="File">File</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">File一、分隔符java12345System.out.println(File.pathSeparator); // 分号（String）System.out.println(File.pathSeparatorChar); // 分号（char）// 获取当前系统中对应的路径分隔符，Windo ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB2.html" title="常用类2"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用类2"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB2.html" title="常用类2">常用类2</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">常用类2一、超级数字1.BigIntegerjava12345678// BigInteger可以表示一个超大的整数BigInteger bint1 = new BigInteger("10000000000000000000");BigInteger bint2 = new BigInteger( ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB.html" title="常用类"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用类"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB.html" title="常用类">常用类</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">常用类一、Systemjava1234567891011121314151617//out对象，标准输出对象System.out.println("hello");//in对象，标椎输入对象Scanner sc = new Scanner(System.in);//err:用来输出错误信息//Sys ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E5%BC%82%E5%B8%B8.html" title="异常"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="异常"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%BC%82%E5%B8%B8.html" title="异常">异常</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">异常###异常？
-写的代码不可能十全十美，有的是会报错，一报错程序立马挂了异常机制：程序中出现了异常，那系统可以将异常捕获并把处理掉，这样程序就不会挂掉，依然往后执行
-异常有哪些？分类Throwable   |— Error   |— Exception​        |— 编译时异常(检查性异常 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"><div class="author-info__name">SEN</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">36</div></a></div><div class="card-info-data-item is-center">      <a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center">     <a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lhspang" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢请收藏 ^_^</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"> <div class="aside-recent-post"><a href="/2020/HashMap.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="HashMap" alt="HashMap"></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/HashMap.html" title="HashMap">HashMap</div><time class="aside-post_meta post-meta__date">2020-03-13</time></div></a></div><div class="aside-recent-post"><a href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="拦截器" alt="拦截器"></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html" title="拦截器">拦截器</div><time class="aside-post_meta post-meta__date">2020-01-03</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E4%BB%A3%E7%90%86.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="代理" alt="代理"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E4%BB%A3%E7%90%86.html" title="代理">代理</div><time class="aside-post_meta post-meta__date">2019-12-30</time></div></a></div><div class="aside-recent-post"><a href="/2019/Spring.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Spring" alt="Spring"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/Spring.html" title="Spring">Spring</div><time class="aside-post_meta post-meta__date">2019-12-27</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E6%B3%A8%E8%A7%A3.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="注解" alt="注解"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E6%B3%A8%E8%A7%A3.html" title="注解">注解</div><time class="aside-post_meta post-meta__date">2019-12-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-item">       <li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="aside-category-list_name">笔记</span><span class="aside-category-list_length">35</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/hello/" style="font-size: 16px; color: #999">hello</a> <a href="/tags/java/" style="font-size: 24px; color: #99a9bf">java</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">2020年03月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/"><span class="archive-list-date">2020年01月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/"><span class="archive-list-date">2019年12月</span><span class="archive-list-count">6</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/"><span class="archive-list-date">2019年11月</span><span class="archive-list-count">2</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/"><span class="archive-list-date">2019年10月</span><span class="archive-list-count">8</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/"><span class="archive-list-date">2019年09月</span><span class="archive-list-count">18</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">36</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="9/13/2019 00:00:00">     </div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By SEN</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"><span>京ICP备18013380号-3</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script><script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script><script>fetch('https://api.ooopn.com/ciba/api.php',)
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-  var sub = '人生苦短，何妨一试。,I\'ll try anything once.'.length == 0  ? new Array() : '人生苦短，何妨一试。,I\'ll try anything once.'.split(",");
-  var both = sub.unshift(data['ciba-en'],data.ciba)
-  var typed = new Typed(".subtitle", {
-  strings: sub,
-  startDelay: 300,
-  typeSpeed: 100,
-  loop: true,
-  backSpeed: 50
-  });
-})
-.catch(function (err) {
-  console.error(err);
-})</script></body></html>
+2、按照操作数据的单位​    字节流：每次读写数据是以一个字节为单位​    字符流：每次读写数据是以一个字符（2个字节）为单位3、节点流、处理流​    节点流：就是直接建立的一种流，没有任何包装的​    处理流：在节点流基础上进行包装后的流
+
+
+二、字节流输入：FileInputStream输出：FileOutputStream
+方法：
+1234567891011121314int read() 从该输入流读取一个字节的数据,返回-1表示读完了。  int read(byte[] b) 从该输入流读取最多 b.length个字节的数据为字节数组,返回读取的字节个数,返回-1表示读完了。 void write(byte[] b) 将 b.length个字节从指定的字节数组写入此文件输出流。 void wri ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" title="正则表达式">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-15 11:30:52"><i class="far fa-calendar-alt"></i>2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">正则表达式正则表达式是一种最早起源于Perl语言的特殊字符串技术，可以通过一些固定的模式编写一些特殊的字符串，通过对这些特殊字符串使用，可以有效的进行表单验证(手机，邮箱，网址等输入格式的检查)，以及一些数据的爬取，包括字符替换等功能;因此，正则表达式是一项非常强大的表达式语言。
+相关类java基础架包中java.util.regex提供正则表达式相关的类：
+
+Pattern 表示正则表达式编译器对象。Pattern 类没有提供公共的构造方法。 必须调用公共的静态 compile 方法，它将返回一个 Pattern 对象。
+Matcher 正则表达式的匹配器。 Matcher 没有定义公共的构造方法，需要通过调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。
+
+简单的正则表达式例子：
+手机号: ^1[3456789]\\d{9}$ 
+解析:
+观察以上表达式，被匹配的字符串，必须以数字1开后，后面第二数只能为3,4,5,6,7,8,9中的其中一个，从第三位开始后面一共包含9位数字，并且以数字结尾。
+基本规则正则表达式组成规范
+“.” ：
+用于匹配一个任意 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/File.html" title="File">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/File.html" title="File">File</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-15 11:14:56"><i class="far fa-calendar-alt"></i>2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">File一、分隔符12345System.out.println(File.pathSeparator); // 分号（String）System.out.println(File.pathSeparatorChar); // 分号（char）// 获取当前系统中对应的路径分隔符，Windows，\。Linux:/System.out.println(File.separator);
+
+二、File对象12345678910111213141516// 获取e盘下的a.txt.文件的File对象File f1 = new File("e:\\a.txt");// 创建一个文件，true表示成功，false表示存在了就不会再次创建boolean flag = f1.createNewFile();System.out.println(flag);// 创建目录（文件夹）File f2 = new File("e:\\file");boolean flag2 = f2.mkdir();System.out.println(flag2);// 一次性创建多层次的目录File f3 = new ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB2.html" title="常用类2">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用类2"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB2.html" title="常用类2">常用类2</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-10-15 10:52:09"><i class="far fa-calendar-alt"></i>2019-10-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">常用类2一、超级数字1.BigInteger12345678// BigInteger可以表示一个超大的整数BigInteger bint1 = new BigInteger("10000000000000000000");BigInteger bint2 = new BigInteger("20000000000000000000");BigInteger data1 = bint1.add(bint2); // +BigInteger data2 = bint1.subtract(bint2); // -BigInteger data3 = bint1.multiply(bint2); // *BigInteger data4 = bint1.divide(bint2);  // 除法
+
+2. BigDecimal123456789// BigDecimal:表示超级小数，并且还能精确显示// 推荐将小数以字符串的形式传入BigDecimal x = new BigDecimal("0.1");BigDecimal y = new BigDecimal("0.2");BigDeci ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB.html" title="常用类">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用类"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%B8%B8%E7%94%A8%E7%B1%BB.html" title="常用类">常用类</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-28 18:57:16"><i class="far fa-calendar-alt"></i>2019-09-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">常用类一、System1234567891011121314151617//out对象，标准输出对象System.out.println("hello");//in对象，标椎输入对象Scanner sc = new Scanner(System.in);//err:用来输出错误信息//System.err.println("world");//方法//currentTimeMillis():返回的是从1970-1-1 0:0:0.0 到此时此刻的毫秒数long time = System.currentTimeMillis();System.out.println(time);//exit():退出程序，0：正常退出，非0不正常退出System.exit(0);System.out.println("程序结束了");
+
+
+
+二、String1、String介绍
+class final String 是一个最终类，不能被继承
+
+final char value[]:用于存储字符串中的每个字符
+
+字符串是一个不可变的常量池中不会将相同的数据保存多份的
+常量池中的字符串数据也是不可变的
+
+通 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">SEN</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">37</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">3</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" type="button" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lhspang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="Rss"><i class="fa fa-rss"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/Docker.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/docker.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Docker" alt="Docker"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/Docker.html" title="Docker">Docker</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-14 00:05:26">2020-07-14</time></div></a></div><div class="aside-recent-post"><a href="/2020/HashMap.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="HashMap" alt="HashMap"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/HashMap.html" title="HashMap">HashMap</div><time class="aside-post_meta post-meta__date" title="发表于 2020-03-13 22:23:24">2020-03-13</time></div></a></div><div class="aside-recent-post"><a href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="拦截器" alt="拦截器"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html" title="拦截器">拦截器</div><time class="aside-post_meta post-meta__date" title="发表于 2020-01-03 10:22:25">2020-01-03</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E4%BB%A3%E7%90%86.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="代理" alt="代理"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E4%BB%A3%E7%90%86.html" title="代理">代理</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-30 08:58:04">2019-12-30</time></div></a></div><div class="aside-recent-post"><a href="/2019/Spring.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Spring" alt="Spring"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/Spring.html" title="Spring">Spring</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-27 11:12:31">2019-12-27</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">笔记</span><span class="card-category-list-count">36</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/docker/' style='font-size:18px; color:rgb(102, 115, 27)'>docker</a><a href='/tags/hello/' style='font-size:19px; color:rgb(105, 59, 142)'>hello</a><a href='/tags/java/' style='font-size:19px; color:rgb(66, 59, 126)'>java</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">18</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">37</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="9/13/2019 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">35.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By SEN</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>京ICP备18013380号-3</span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/third-party/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
+  var subtitleEffect = true
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function (data) {
+      if (subtitleEffect) {
+        var from = '出自 ' + data.from
+        var sub = "人生苦短，何妨一试。,I\'ll try anything once.".length == 0 ? new Array() : "人生苦短，何妨一试。,I\'ll try anything once.".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+window.addEventListener('load', subtitleType)
+</script></body></html>

@@ -1,60 +1,76 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>SENS</title><meta name="description"><meta name="keywords" content="森森的博客,森森"><meta name="author" content="SEN"><meta name="copyright" content="SEN"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="SENS"><meta name="twitter:description"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta property="og:type" content="website"><meta property="og:title" content="SENS"><meta property="og:url" content="https://blog.sens.fun/page/3/"><meta property="og:site_name" content="SENS"><meta property="og:description"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
-var t = Cookies.get("theme");
-if (autoChangeMode == '1'){
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-if (t === undefined){
-  if (isLightMode) activateLightMode()
-  else if (isDarkMode) activateDarkMode()
-  else if (isNotSpecified || hasNoSupport){
-    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-    now = new Date();
-    hour = now.getHours();
-    isNight = hour < 6 || hour >= 18
-    isNight ? activateDarkMode() : activateLightMode()
-}
-} else if (t == 'light') activateLightMode()
-else activateDarkMode()
-
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SENS</title><meta name="description"><meta name="keywords" content="森森的博客,森森"><meta name="author" content="SEN"><meta name="copyright" content="SEN"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/favicon.ico"><link rel="canonical" href="https://blog.sens.fun/page/3/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="SENS"><meta property="og:url" content="https://blog.sens.fun/page/3/"><meta property="og:site_name" content="SENS"><meta property="og:description"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg"><meta property="article:published_time" content="2020-07-14T11:32:39.591Z"><meta property="article:modified_time" content="2020-07-14T11:32:39.591Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
   }
 }
-function activateLightMode(){
+var activateLightMode = function () {
   document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
   }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://blog.sens.fun/page/3/"><link rel="preload" href="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg" as="image"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c5a385a4c1466b48bbff001d228f4122";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://blog.sens.fun","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
   bookmark: {
-    title: 'Snackbar.bookmark.title',
     message_prev: '按',
     message_next: '键将本页加入书签'
   },
@@ -65,13 +81,45 @@ function activateLightMode(){
   medium_zoom: false,
   fancybox: true,
   Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
   baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
   isHome: true,
-  isPost: false
-  
-}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">SENS</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">36</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><nav class="full_page" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)"><div id="site-info"><div id="site-title"><span class="blogtitle">SENS</span></div><div id="site-sub-title"><span class="subtitle"></span></div><div id="site-social-icons"><a class="social-icon" href="https://github.com/lhspang" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div></nav><main id="content-outer"><div class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E5%86%85%E9%83%A8%E7%B1%BB.html" title="内部类"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="内部类"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%86%85%E9%83%A8%E7%B1%BB.html" title="内部类">内部类</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">1、内部类java1234567891011public class A&#123;	变量     方法     构造方法            class B&#123;              &#125;      &#125;
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-07-14 19:32:39'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">37</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">SENS</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">SENS</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/lhspang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="Rss"><i class="fa fa-rss"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E5%BC%82%E5%B8%B8.html" title="异常">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="异常"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%BC%82%E5%B8%B8.html" title="异常">异常</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-28 18:56:41"><i class="far fa-calendar-alt"></i>2019-09-28</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">异常###异常？
+写的代码不可能十全十美，有的是会报错，一报错程序立马挂了异常机制：程序中出现了异常，那系统可以将异常捕获并把处理掉，这样程序就不会挂掉，依然往后执行
+异常有哪些？分类Throwable   |— Error   |— Exception​        |— 编译时异常(检查性异常)：需要强制性try catch
+​        |— IOException
+​        | —  …..        
+|--- 运行时异常(非检查性异常)：一般不做处理​        | — NullPointerException
+​        | — ArithmeticException
+​        | — …       
 
-1.成员内部类​    私有的内部类只能在当前的外部类中使用 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/final-abstract-interface.html" title="final+abstract+interface"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="final+abstract+interface"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/final-abstract-interface.html" title="final+abstract+interface">final+abstract+interface</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">1、final
+处理1.try…catch…finally (在发生位置立马处理掉)
+1234"一个抛，一个接"   try&#123;​
+可能抛出异常的代码​```
+   }catch(异常类型1 变量名){           处理异常的代码   }catch(异常类型2 变量名){           处理异常的代码   }catch(异常类型 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E5%86%85%E9%83%A8%E7%B1%BB.html" title="内部类">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="内部类"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%86%85%E9%83%A8%E7%B1%BB.html" title="内部类">内部类</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-26 16:07:54"><i class="far fa-calendar-alt"></i>2019-09-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">1、内部类1234567891011public class A&#123;	变量     方法     构造方法            class B&#123;              &#125;      &#125;
+
+1.成员内部类​    私有的内部类只能在当前的外部类中使用
+12345678910111213141516171819202122public class Dog &#123;  public String name;  public int age;  public String sex;  public String weight;  public void eat() &#123;    System.out.println("狗吃骨头");  &#125;  public void f() &#123;    System.out.println(money); // 成员内部类可以直接访问外部类属性    study();// 成员内部类可以直接访问外部类方法    // 外部类和内部类中有同名的属性时    System.out.println ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/final-abstract-interface.html" title="final+abstract+interface">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="final+abstract+interface"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/final-abstract-interface.html" title="final+abstract+interface">final+abstract+interface</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-26 15:40:19"><i class="far fa-calendar-alt"></i>2019-09-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">1、final
 final可以修饰变量（常量），一般常量会被设置成：static final
 
 final可以修饰方法，方法不可重写
@@ -83,7 +131,32 @@ final修饰局部变量
 
 2、抽象（abstract）abstract修饰的类的称之为抽象类。
 
-抽象类里面可以定义属性、方法 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/static.html" title="static"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="static"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/static.html" title="static">static</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">##static
+抽象类里面可以定义属性、方法（普通或者抽象的）；
+
+抽象类里面可以定义构造方法；
+
+抽象类不能创建对象，只能由子类去继承；
+
+若一个类中有抽象方法，那么这个类必须是抽象类，子类中要实现该方法(抽象子类不用实现)；
+抽象方法不包含方法体，不能被private、final修饰。
+1修饰符 abstract 返回值类型 方法名([参数列表]);
+
+抽象类和抽象方法是不能设置成final的；
+
+抽象类里面不一定要包含抽象方法。
+
+
+
+当我们在设计的时候，对于当前类的某些行为不能在类中确定，可能要在其子类中进行具体的实现，那么此时就可以考虑将当前类设置抽象类，对应的方法就是抽象方法
+
+3、接口（interface）
+接口和类时同等级的
+
+关键字：interface
+
+接口里面可以定义什么：
+公共的抽象方法
+公共的静态常量，通过接 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/static.html" title="static">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="static"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/static.html" title="static">static</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-24 19:41:10"><i class="far fa-calendar-alt"></i>2019-09-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">##static
 
 static：静态的
 
@@ -93,7 +166,33 @@ static：静态的
 
 非静态变量：我们又称之为实例变量，每一个对象都会有一套完全独立的非静态变量，每个对象里面的非静态变量若发生更改 ，不会影响到其他对象的非静态变量
 
-静态变 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E5%A4%9A%E6%80%81+%E5%8C%85%E8%A3%85%E7%B1%BB.html" title="多态"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多态"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%A4%9A%E6%80%81+%E5%8C%85%E8%A3%85%E7%B1%BB.html" title="多态">多态</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">##多态
+静态变量：我们又称之为类变量，这个是跟类相关，与类的对象没有关系，这个静态变量将会在当前这个类的所有对象中共享（独此一份）,可以通过类名调用
+
+静态变量的初始化时机：在类加载（使用类）的时候就会进行初始化
+
+
+4.修饰方法
+
+
+
+静态方法也是可以直接通过类名调用
+静态方法也是在加载类的时候会提前加载方法
+
+
+注意：
+静态方法不能访问非静态属性,或者调用非静态方法
+普通方法是可以调用静态属性和静态方法的
+
+5.什么时候用
+
+什么时候用静态变量：
+假如某个变量是不随对象更改而更改的，那就可以采用静态的常量一般也是设置成静态的
+
+什么时候用静态方法：
+一般在工具类中，方法一般是设置成静态的，Math、Arrays…在类中如果说要设计操作一个静态属性的方法，那这个方法一般我们也是设置成静态的
+
+
+单例模式 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E5%A4%9A%E6%80%81+%E5%8C%85%E8%A3%85%E7%B1%BB.html" title="多态">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多态"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%A4%9A%E6%80%81+%E5%8C%85%E8%A3%85%E7%B1%BB.html" title="多态">多态</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-23 09:13:51"><i class="far fa-calendar-alt"></i>2019-09-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">##多态
 多态是指对象的多种形态，使用多态可以提高代码的扩展性，适用性
 使用多态包含的条件
 
@@ -105,17 +204,41 @@ static：静态的
 类中的属性不参与多态性；
 父类引用调用方法时，若子类对该方法进行了重写，那么将执行子类重写后的方法，所以这里体现出多态是运行时多态；
 父类引用不能调用子类新增的属性或者方法；
- ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E7%BB%A7%E6%89%BF.html" title="继承"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="继承"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E7%BB%A7%E6%89%BF.html" title="继承">继承</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">继承性好处：提高代码复用性，提高类的扩展性
+
+理解上课的两个例子：《开车》和《数据库驱动类》，重点在于为什么这样设计，带来的好处，从而明白多态性的使用
+包装类实际使用中基本数据类型可能会需要一些特殊操作，例如与String相互转换，比大小，转换成其他进制等等，像这样常规思路就是定义一些方法来实现这些，Java的开发者已经将这些情况提前考虑到了，所以就设计了基本数据类型对应的一些类，这些类我们称之为包装类，包装类中提供了一些功能方法。
+
+常用的方法
+parsexxx():将字符串转换成对应的基本类型
+
+valueof():将字符串转换成对应的包装类
+
+toString():转换成字符串
+
+
+自动装箱与自动拆箱jdk1.5后提供了自动装箱与自动拆箱
+12Integer in3 = 500; //自动装箱, new Integer(500) ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E7%BB%A7%E6%89%BF.html" title="继承">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="继承"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E7%BB%A7%E6%89%BF.html" title="继承">继承</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-20 13:44:05"><i class="far fa-calendar-alt"></i>2019-09-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">继承性好处：提高代码复用性，提高类的扩展性
 特点：
 1、子类可以继承父类的属性和方法，private修饰的不能直接调用，但是已经继承
 2、子类也可以新增属性和行为
 3、继承是单继承，一个子类只能直接继承一个父类
 方法的重写1、方法的名字、参数列表、返回值都要跟父类的方法一致
- 2、子类方法的访问权限 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html" title="学生管理系统"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学生管理系统"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html" title="学生管理系统">学生管理系统</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">Student类学生类：包括name和score属性，构造方法public Student（）{}
-java12public String name;public int score;
+ 2、子类方法的访问权限修饰符不能小于父类的方法
+构造方法子类的构造方法会默认调用父类的无参构造方法
+super：指代父类对象，可以调用父类的属性，构造方法，普通方法
+子类的初始化流程创建子类对象时，先创建父类对象，再创建子类对象
+代码块123456789/** 代码块&#123;&#125;* 有的时候类中可能存在多个构造方法，并且这些构造方法里面有相同代码片段* 这个时候可以将这些相同的代码片段定义在代码块中* 代码块中的代码也是用于初始化属性* * 特性：* 代码块中的代码先于构造方法执行，并且每次创建对象都会执行*/
+
+
+Object所有类的父类，一个类如果不继承任何类，那么就会继承Object类
+####toString方法
+
+Object中的toString方法返回的是对象的地址
+一般toString方 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html" title="学生管理系统">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学生管理系统"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html" title="学生管理系统">学生管理系统</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-19 20:05:54"><i class="far fa-calendar-alt"></i>2019-09-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">Student类学生类：包括name和score属性，构造方法public Student（）{}
+12public String name;public int score;
 
 SuperArray类超级数组，存放Student对象的数组
-java123456789101112131415 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13.html" title="面向对象3"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象3"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13.html" title="面向对象3">面向对象3</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">复习this关键字：指代当前类的对象
+12345678910111213141516171819202122232425262728293031323334// 构造方法public SuperArray() &#123;  arr = new Student[10];&#125;//存放数据，添加的方法public void add(Student data)&#123;  &#125;//更新数组，不对外公开private void modify()&#123;  &#125;//获取数组中元素的个数public inr getSize()&#123;  &#125;//输出所有数据public void print()&#123;  &#125;//获取指定位置的元素public Student get(String name)&#123;  &#125;//删除指定位置的元素p ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13.html" title="面向对象3">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象3"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13.html" title="面向对象3">面向对象3</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-18 08:37:36"><i class="far fa-calendar-alt"></i>2019-09-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">复习this关键字：指代当前类的对象
 
 this可以调用当前类中的属性，构造方法
 
@@ -126,7 +249,55 @@ this可以在构造方法中调用另外一个构造方法，注意：不能同�
 面向对象的三个主线
 类和对象
 面向对象的三大特性：封装，继承，多态
-关键字：package，import ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12.html" title="面向对象2"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象2"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12.html" title="面向对象2">面向对象2</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">复习类，class
+关键字：package，import，final，static
+
+封装该暴露的暴露，该隐藏的隐藏
+封装通过访问修饰符进行实现
+
+
+
+
+本类
+同一个包
+子类
+全局
+
+
+
+public
+Y
+Y
+Y
+Y
+
+
+protected(受保护的)
+Y
+Y
+Y
+N
+
+
+缺省
+Y
+Y
+N
+N
+
+
+private
+Y
+N
+N
+N
+
+
+package &amp; import
+package（包）：包其实就是文件夹
+项目比较复杂，各个功能模块，会创建很多的类，需要把类分门别类的存放，处理网络请求类，工具类。。。
+相同功能的类放到一个包中
+包的名称：
+12345678//com:表示商业性的组织，公司com.sen.test//org:开源组织org.sen.test//edu:教育组织，学校edu.sen.test//gov:政府组织，政府相关机构 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12.html" title="面向对象2">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象2"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12.html" title="面向对象2">面向对象2</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-17 13:43:41"><i class="far fa-calendar-alt"></i>2019-09-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">复习类，class
 public class 类名{
 ​    属性（变量）
 ​    行为（方法）
@@ -136,7 +307,18 @@ public class 类名{
 对象名.xxx()
 对象在内存中的存储方式
 Person p = new Person();
-方法重载：方法名相同，参数列表不同（参数类型或者参数的个 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover left_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html" title="面向对象"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html" title="面向对象">面向对象</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">复习变量
+方法重载：方法名相同，参数列表不同（参数类型或者参数的个数）
+构造方法：用来创建对象
+无参构造
+带参构造
+this关键字this：this代表当前类的对象
+使用
+
+可以调用类型的属性，构造方法里面。getxxx()方法里面
+调用类中的普通方法
+在一个构造方法中调用另外一个构造方法
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html" title="面向对象">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html" title="面向对象">面向对象</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-09-16 11:15:56"><i class="far fa-calendar-alt"></i>2019-09-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">复习变量
 运算符
 分支语句 if  switch
 循环：while  do…while    for
@@ -144,24 +326,52 @@ Person p = new Person();
 数组：一维数组，多维数组（二维数组）
 面向过程面向过程和面向对象，都是一种设计思想
 面向过程：侧重于实现的具体过程，主要设计到方法（函数）
-面向对象：面向对象是将问题转行成谁做什么事情（对象干 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover right_radius"><a href="/2019/%E6%95%B0%E7%BB%84.html" title="数组"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数组"></a></div><div class="recent-post-info">  <a class="article-title" href="/2019/%E6%95%B0%E7%BB%84.html" title="数组">数组</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><div class="content">一、一维数组数组：数组是一种数据结构，可以存放多个数据
+面向对象：面向对象是将问题转行成谁做什么事情（对象干什么）
+怎么将大象放进冰箱？
+面向过程：
+1、开冰箱门
+2、把大象塞进去
+3、关冰箱门
+面向对象：
+存在哪些对象（事物）
+冰箱、大象、人
+1234567891011121314151617181920212223冰箱（）&#123;	冰箱门打开（）&#123;&#125;	冰箱门关闭（）&#123;&#125;&#125;人（）&#123;	打开冰箱门（）&#123;&#125;	赛大象（）&#123;&#125;	关闭冰箱门（）&#123;&#125;&#125;大象（）&#123;	喊救命（）&#123;&#125;&#125;
 
-1、数组定义声明并初始化数组：
-java1234567// 1 知道数据int[] arr = &#123;10,20,30&#125;;int arr[] = &#123;10,20,30&#125;;int[] arr = new int ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"><div class="author-info__name">SEN</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">36</div></a></div><div class="card-info-data-item is-center">      <a href="/tags/"><div class="headline">标签</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center">     <a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lhspang" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢请收藏 ^_^</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"> <div class="aside-recent-post"><a href="/2020/HashMap.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="HashMap" alt="HashMap"></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/HashMap.html" title="HashMap">HashMap</div><time class="aside-post_meta post-meta__date">2020-03-13</time></div></a></div><div class="aside-recent-post"><a href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="拦截器" alt="拦截器"></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html" title="拦截器">拦截器</div><time class="aside-post_meta post-meta__date">2020-01-03</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E4%BB%A3%E7%90%86.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="代理" alt="代理"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E4%BB%A3%E7%90%86.html" title="代理">代理</div><time class="aside-post_meta post-meta__date">2019-12-30</time></div></a></div><div class="aside-recent-post"><a href="/2019/Spring.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Spring" alt="Spring"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/Spring.html" title="Spring">Spring</div><time class="aside-post_meta post-meta__date">2019-12-27</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E6%B3%A8%E8%A7%A3.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="注解" alt="注解"></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E6%B3%A8%E8%A7%A3.html" title="注解">注解</div><time class="aside-post_meta post-meta__date">2019-12-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-item">       <li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="aside-category-list_name">笔记</span><span class="aside-category-list_length">35</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/hello/" style="font-size: 16px; color: #999">hello</a> <a href="/tags/java/" style="font-size: 24px; color: #99a9bf">java</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">2020年03月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/"><span class="archive-list-date">2020年01月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/"><span class="archive-list-date">2019年12月</span><span class="archive-list-count">6</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/"><span class="archive-list-date">2019年11月</span><span class="archive-list-count">2</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/"><span class="archive-list-date">2019年10月</span><span class="archive-list-count">8</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/"><span class="archive-list-date">2019年09月</span><span class="archive-list-count">18</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">36</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="9/13/2019 00:00:00">     </div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/index.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By SEN</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"><span>京ICP备18013380号-3</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script><script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script><script>fetch('https://api.ooopn.com/ciba/api.php',)
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-  var sub = '人生苦短，何妨一试。,I\'ll try anything once.'.length == 0  ? new Array() : '人生苦短，何妨一试。,I\'ll try anything once.'.split(",");
-  var both = sub.unshift(data['ciba-en'],data.ciba)
-  var typed = new Typed(".subtitle", {
-  strings: sub,
-  startDelay: 300,
-  typeSpeed: 100,
-  loop: true,
-  backSpeed: 50
-  });
-})
-.catch(function (err) {
-  console.error(err);
-})</script></body></html>
+
+
+具体过程：
+人.打开冰箱门（）{}
+人.塞大象（）{}
+人.关闭冰箱门（）{}
+java中面向对象体现类（class）：类是对一类事物的一个抽象定义
+对象 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">SEN</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">37</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">3</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" type="button" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lhspang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:sen@sensen.fun" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="Rss"><i class="fa fa-rss"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/Docker.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/docker.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Docker" alt="Docker"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/Docker.html" title="Docker">Docker</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-14 00:05:26">2020-07-14</time></div></a></div><div class="aside-recent-post"><a href="/2020/HashMap.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="HashMap" alt="HashMap"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/HashMap.html" title="HashMap">HashMap</div><time class="aside-post_meta post-meta__date" title="发表于 2020-03-13 22:23:24">2020-03-13</time></div></a></div><div class="aside-recent-post"><a href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="拦截器" alt="拦截器"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/%E6%8B%A6%E6%88%AA%E5%99%A8.html" title="拦截器">拦截器</div><time class="aside-post_meta post-meta__date" title="发表于 2020-01-03 10:22:25">2020-01-03</time></div></a></div><div class="aside-recent-post"><a href="/2019/%E4%BB%A3%E7%90%86.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="代理" alt="代理"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/%E4%BB%A3%E7%90%86.html" title="代理">代理</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-30 08:58:04">2019-12-30</time></div></a></div><div class="aside-recent-post"><a href="/2019/Spring.html"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/lhspang/CDN@latest/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Spring" alt="Spring"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/Spring.html" title="Spring">Spring</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-27 11:12:31">2019-12-27</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">笔记</span><span class="card-category-list-count">36</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/docker/' style='font-size:18px; color:rgb(102, 115, 27)'>docker</a><a href='/tags/hello/' style='font-size:19px; color:rgb(105, 59, 142)'>hello</a><a href='/tags/java/' style='font-size:19px; color:rgb(66, 59, 126)'>java</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">18</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">37</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="9/13/2019 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">35.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By SEN</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>京ICP备18013380号-3</span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/third-party/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
+  var subtitleEffect = true
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function (data) {
+      if (subtitleEffect) {
+        var from = '出自 ' + data.from
+        var sub = "人生苦短，何妨一试。,I\'ll try anything once.".length == 0 ? new Array() : "人生苦短，何妨一试。,I\'ll try anything once.".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+window.addEventListener('load', subtitleType)
+</script></body></html>
