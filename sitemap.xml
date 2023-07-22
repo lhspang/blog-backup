@@ -362,13 +362,6 @@
 
   
   <url>
-    <loc>https://blog.dd.md/tags/docker/</loc>
-    <lastmod>2023-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.dd.md/tags/java/</loc>
     <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -376,7 +369,7 @@
   </url>
   
   <url>
-    <loc>https://blog.dd.md/tags/hexo/</loc>
+    <loc>https://blog.dd.md/tags/docker/</loc>
     <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -397,7 +390,7 @@
   </url>
   
   <url>
-    <loc>https://blog.dd.md/tags/spring/</loc>
+    <loc>https://blog.dd.md/tags/hexo/</loc>
     <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -405,6 +398,13 @@
   
   <url>
     <loc>https://blog.dd.md/tags/hello/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.dd.md/tags/spring/</loc>
     <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
