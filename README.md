@@ -1,7 +1,5 @@
-# 森森博客
-森森博客的文章现已合并到轩霸霸！
+# 钉钉博客
 
-新地址：[www.xuanbaba.com](https://www.xuanbaba.com)
+原站地址：[blog.dd.md](https://blog.dd.md)
 
-原站备份：[blog-backup.dd.md](https://blog-backup.dd.md)
-
+cloudflare备份站地址：[blog-backup.dd.md](https://blog-backup.dd.md)
